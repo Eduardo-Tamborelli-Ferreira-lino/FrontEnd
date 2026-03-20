@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <title>Bootstrap</title>
+</head>
+
+<body>
+    <!-- Crie uma barra de navegação utilizando o componente 'navbar' do Bootstrap -->
+    <nav class="navbar bg-primary">
+        <div class="container-fluid" style="width: 95%;">
+            <a class="navbar-brand navbar-dark" href="#">Eduardo Lino</a>
+            <ul class="navbar-nav flex-row gap-4">
+                <li class="nav-item">
+                    <a class="text-white-50 text-decoration-none" href="https://www.linkedin.com/in/seu_perfil"
+                        target="_blank">LinkedIn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-white-50 text-decoration-none" href="https://github.com/seu_usuario"
+                        target="_blank">GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Crie uma seção de apresentação utilizando o sistema de grid do Bootstrap para centralizar o conteúdo -->
+    <section class="my-5">
+        <div class="text-center">
+            <img src="assets/sua_foto.png" alt="Sua Foto" class="rounded-circle mb-3" style="width: 200px;">
+            <h2>Eduardo Lino</h2>
+            <p>Uma breve descrição sobre você, sua formação e suas habilidades principais.</p>
+        </div>
+    </section>
+    <!-- Adicione uma seção para listar seus projetos ou trabalhos recentes, utilizando os componentes 'card' do Bootstrap -->
+    <section class="container mb-5">
+        <h3 class="text-center">Projetos Recentes</h3>
+        <div class="row row-cols-lg-auto pt-3 row-gap-4 justify-content-center">
+            <div class="">
+                <div class="card" style="max-width: 410px;">
+                    <img src="assets/projeto1.jpg" class="mb-3" alt="Projeto 1">
+                    <div class="ms-3">
+                        <h5 class="pb-2">Projeto 1</h5>
+                        <p class="">Breve descrição do projeto 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card" style="max-width: 410px;">
+                    <img src="assets/projeto2.jpg" class="mb-3" alt="Projeto 1">
+                    <div class="ms-3">
+                        <h5 class="pb-2">Projeto 2</h5>
+                        <p class="">Breve descrição do projeto 2.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card" style="max-width: 410px;">
+                    <img src="assets/projeto3.jpg" class="mb-3" alt="Projeto 1">
+                    <div class="ms-3">
+                        <h5 class="pb-2">Projeto 3</h5>
+                        <p class="">Breve descrição do projeto 3.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card" style="max-width: 410px;">
+                    <img src="assets/projeto4.jpg" class="mb-3" alt="Projeto 1">
+                    <div class="ms-3">
+                        <h5 class="pb-2">Projeto 4</h5>
+                        <p class="">Breve descrição do projeto 4.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card" style="max-width: 410px;">
+                    <img src="assets/projeto5.jpg" class="mb-3" alt="Projeto 1">
+                    <div class="ms-3">
+                        <h5 class="pb-2">Projeto 5</h5>
+                        <p class="">Breve descrição do projeto 5.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="card" style="max-width: 410px;">
+                    <img src="assets/projeto6.jpg" class="mb-3" alt="Projeto 1">
+                    <div class="ms-3">
+                        <h5 class="pb-2">Projeto 6</h5>
+                        <p class="">Breve descrição do projeto 6.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repita o mesmo padrão para os projetos 2 a 6 -->
+        </div>
+    </section>
+    <!-- Crie um rodapé simples utilizando as classes do Bootstrap -->
+    <footer class="bg-primary d-flex justify-content-center align-items-center text-white " style="height: 50px;">
+        <p class="mb-0">&copy; Eduardo Lino - 2023</p>
+    </footer>
+</body>
+
+</html>
