@@ -283,7 +283,17 @@ function numeroAleatorio() {
 }
 
 function questao13() {
+    console.log();
+    console.log("Informe um dia do seu nascimento: ");
+    console.log();
+    let data1 = Number(prompt());
+    console.log("Agora Informe um dia aleatorio: ");
+    let data2 = Number(prompt());
 
+}
+
+function verificarDistancia (data1, data2) {
+    
 }
 
 function questao14() {
