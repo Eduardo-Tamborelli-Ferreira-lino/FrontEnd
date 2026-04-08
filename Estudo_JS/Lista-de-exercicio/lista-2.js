@@ -3,8 +3,12 @@ const prompt = require('prompt-sync')();
 // Arrows Functions
 let produto = (valor1, valor2) => valor1 * valor2;
 
-while (true) {
-    console.log(`
+menuPrincipal();
+
+function menuPrincipal() {
+
+    while (true) {
+        console.log(`
     Lista - 2
     --------------------
     | 1 - Questão 1    |
@@ -21,69 +25,75 @@ while (true) {
     | 12 - Questão 12  |
     | 13 - Questão 13  |
     | 14 - Questão 14  |
+    | 15 - Questão 15  |
     | 0 - Sair         |
     --------------------
-    `)
-    let opcao = parseInt(prompt())
-    switch (opcao) {
-        case 1: {
-            questao1()
-            break
-        }
-        case 2: {
-            questao2()
-            break
-        }
-        case 3: {
-            questao3()
-            break
-        }
-        case 4: {
-            questao4()
-            break
-        }
-        case 5: {
-            questao5()
-            break
-        }
-        case 6: {
-            questao6()
-            break
-        }
-        case 7: {
-            questao7()
-            break
-        }
-        case 8: {
-            questao8()
-            break
-        }
-        case 9: {
-            questao9()
-            break
-        }
-        case 10: {
-            questao10()
-            break
-        }
-        case 11: {
-            questao11()
-            break
-        }
-        case 12: {
-            questao12()
-            break
-        }
-        case 13: {
-            questao13()
-            break
-        }
-        case 14: {
-            questao14()
-            break
-        }
-        case 0: {
-            process.exit(0);
+        `)
+        let opcao = parseInt(prompt())
+        switch (opcao) {
+            case 1: {
+                questao1()
+                break
+            }
+            case 2: {
+                questao2()
+                break
+            }
+            case 3: {
+                questao3()
+                break
+            }
+            case 4: {
+                questao4()
+                break
+            }
+            case 5: {
+                questao5()
+                break
+            }
+            case 6: {
+                questao6()
+                break
+            }
+            case 7: {
+                questao7()
+                break
+            }
+            case 8: {
+                questao8()
+                break
+            }
+            case 9: {
+                questao9()
+                break
+            }
+            case 10: {
+                questao10()
+                break
+            }
+            case 11: {
+                questao11()
+                break
+            }
+            case 12: {
+                questao12()
+                break
+            }
+            case 13: {
+                questao13()
+                break
+            }
+            case 14: {
+                questao14()
+                break
+            }
+            case 15: {
+                questao15()
+                break
+            }
+            case 0: {
+                process.exit(0);
+            }
         }
     }
 }
@@ -268,12 +278,44 @@ function contagemRegressiva(numero) {
 }
 
 function questao11() {
+    let carro = {
+        marca: "Volkswagen",
+
+        modelo: "Jetta GLI",
+
+        ano: 2021,
+
+        getIdade: function () {
+
+            return "Esse carro tem seus incriveis: " + 2026 - this.ano;
+
+        },
+
+        getDescricao: function () {
+
+            return "Modelo: " + this.modelo + "\n" + "Marca" + this.marca + "\n" + "Ano:" + this.ano;
+
+        }
+
+    }
+
+    console.log();
+    console.log(carro.marca);
+
+    console.log();
+    carro.ano = 2022;
+
+    console.log();
+    console.log(carro.getIdade());
+
+    console.log();
+    console.log(carro.getDescricao());
 
 }
 
 function questao12() {
     console.log();
-    let numero = numeroAleatorio()
+    let numero = numeroAleatorio();
     console.log(numero);
     console.log();
 }
@@ -288,14 +330,222 @@ function questao13() {
     console.log();
     let data1 = Number(prompt());
     console.log("Agora Informe um dia aleatorio: ");
+    console.log();
     let data2 = Number(prompt());
-
+    console.log(verificarDistancia(data1, data2))
 }
 
-function verificarDistancia (data1, data2) {
-    
+function verificarDistancia(data1, data2) {
+    return distancia = data1 - data2;
 }
 
 function questao14() {
 
+    let saldoDaConta = 0;
+
+    let conta = {
+
+        saldo: saldoDaConta,
+
+        titular: "Eduardo Tamborelli Ferreira Lino",
+
+        depositar: function () {
+            console.log();
+            console.log("Informe o quanto deseja depositar: ");
+            try {
+
+                let deposito = Number(prompt());
+
+                if (isNaN(deposito)) {
+                    console.log(`Erro ao executar o Deposito.\n Insira um valor númerico para o saque.`)
+                    return;
+                }
+
+                if (deposito > 0) {
+                    this.saldo += deposito;
+                    console.log();
+                    console.log(`Sucesso \n\n Seu saldo foi alterado com sucesso.\n\n Saldo: ${this.saldo}`);
+                    return this.saldo;
+                }
+
+                else {
+
+                    console.log();
+                    console.log("ERRO!!!! \n" +
+                        "Não é possivel depositar um número negativo");
+                    return 0;
+
+                }
+
+            }
+            catch (error) {
+
+                console.log(`Erro ao executar o deposito. \n ${error}`);
+                return;
+
+            }
+        },
+
+        sacar: function () {
+
+            console.log();
+            console.log("Informe o quanto deseja sacar: \n");
+            try {
+
+                let saque = Number(prompt());
+
+                if (isNaN(saque)) {
+                    console.log(`Erro ao executar o Saque.\n Insira um valor númerico para o saque.`)
+                    return;
+                }
+
+                if (saque > 0) {
+
+                    this.saldo -= saque;
+                    console.log();
+                    console.log(`Sucesso ao realizar o saque.\n\n Seu saldo no momento é \n\n Saldo: ${this.saldo}`);
+                    return this.saldo;
+
+                } else {
+
+                    console.log();
+                    console.log("ERRO!!!! \n\n" +
+                        "Não é possivel sacar um número negativo");
+                    return 0;
+
+                }
+            } catch (error) {
+                console.log(`Erro ao executar o Saque.\n ${error}`)
+                return 0;
+            }
+
+        },
+
+        verSaldo: function () {
+
+            console.log();
+            console.log(`O seu saldo nesse exato momento é \n Saldo: ${this.saldo}`);
+
+        }
+    }
+
+    menuQuestao14(saldoDaConta, conta);
+}
+
+
+function menuQuestao14(saldoDaConta, conta) {
+
+    while (true) {
+
+        console.log();
+        console.log(`O que deseja realizar na sua conta: 
+    1 - Depositar saldo. 
+    2 - Sacar.
+    3 - Vizualizar saldo. 
+    0 - Retornar.
+    `);
+        console.log();
+
+        try {
+
+            let opcao = Number(prompt());
+            console.log();
+
+            if (isNaN(opcao)) {
+                console.log(`Erro ao selecionar opção.\n Insira um valor númerico para a opção.`);
+            }
+
+            else {
+
+                switch (opcao) {
+
+                    case 1: {
+
+                        saldoDaConta += conta.depositar();
+                        break;
+
+                    }
+
+                    case 2: {
+
+                        saldoDaConta += conta.sacar();
+                        break;
+
+                    }
+
+                    case 3: {
+
+                        conta.verSaldo();
+                        break;
+
+                    }
+
+                    case 0: {
+
+                        menuPrincipal();
+
+                    }
+
+                    default: {
+
+                        console.log();
+                        console.log(`Número invalido insira um opção citada acima. `);
+                        break;
+
+                    }
+                }
+            }
+
+        } catch (error) {
+
+            console.log();
+            console.log(`ERROOOO!!!!! ${error}`);
+            break;
+
+        }
+    }
+}
+
+function questao15() {
+    // 1. Criar array inicial
+    let frutas = ["maçã", "banana", "laranja"];
+    console.log("Array inicial:", frutas);
+
+    // 1. Imprimir o segundo elemento (índice 1)
+    console.log("1. Segundo elemento:", frutas[1]);
+
+    // 2. Adicionar "manga" ao final
+    frutas.push("manga");
+    console.log("2. Após adicionar manga:", frutas);
+
+    // 3. Remover o primeiro elemento
+    frutas.shift();
+    console.log("3. Após remover o primeiro elemento (maçã):", frutas);
+
+    // 4. Verificar o tamanho do array
+    console.log("4. Tamanho do array:", frutas.length);
+
+    // 5. Loop for
+    console.log("5. Loop for:");
+    for (let i = 0; i < frutas.length; i++) {
+        console.log(` - ${frutas[i]}`);
+    }
+
+    // 6. forEach
+    console.log("6. Método forEach:");
+    frutas.forEach(fruta => console.log(` - ${fruta}`));
+
+    // 7. map (tamanho das strings)
+    let tamanhos = frutas.map(fruta => fruta.length);
+    console.log("7. Novo array com tamanhos das frutas:", tamanhos);
+
+    // 8. filter (frutas com mais de 5 caracteres)
+    let frutasLongas = frutas.filter(fruta => fruta.length > 5);
+    console.log("8. Frutas com mais de 5 caracteres:", frutasLongas);
+
+    // 9. reduce (soma de números em um array)
+    let numeros = [10, 20, 30, 40, 50];
+    let somaTotal = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+    console.log("9. Array de números:", numeros);
+    console.log("   Soma total dos números usando reduce:", somaTotal);
 }
