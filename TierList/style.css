@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: linear-gradient(180deg, #1A0826, #2A0F3A, #3A0A4F);
+    --tierS: #00C853;
+    --tierA: #64DD17;
+    --tierB: #FFD600;
+    --tierC: #FF6E6E;
+    --tierD: #D50000;
+    --card-champions: #2E1A47;
+    --container: #4A2A6A;
+    --hover: #5E35B1;
+    --btn-active: #6A1B9A;
+    --btn-inactive: #3A1F5D;
+    --main-text: #F5F5F5;
+    --segundary-text: #C7B8E0;
+    --desable-text: #8E7CA6;
+
+
+}
+
+body {
+    background: var(--background);
+    color: var(--main-text);
+}
+
+header {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 40%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+#links-acess {
+    display: none;
+}
+
+#menu-hamburger {
+    width: 7%;
+}
+
+#menu-hamburger img {
+    width: 100%;
+}
+
+#filter {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 10%;
+    scrollbar-width: none;
+}
+
+#filter::-webkit-scrollbar {
+    display: none;
+    /* Hides scrollbar on Chrome/Safari */
+}
+
+.filter-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0.25rem;
+    background-color: var(--btn-inactive);
+    color: var(--segundary-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.champions-card {
+    min-height: 100px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px dashed red;
+    /* Pra você enxergar onde deve soltar! */
+}

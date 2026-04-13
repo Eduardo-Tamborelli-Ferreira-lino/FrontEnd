@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Julgamento Supremo</title>
 </head>
 
@@ -14,7 +15,7 @@
             <img src="./Images/Logo.png" alt="Logo of the site">
         </div>
         <div id="menu-hamburger">
-            <img src="" alt="Menu Hamburger For More Functions">
+            <img src="./Images/menu (1).png" alt="Menu Hamburger For More Functions">
         </div>
         <nav id="links-acess">
             <ul>
@@ -27,44 +28,120 @@
     </header>
 
     <main>
-        <section>
-            <!-- Alguem nerfa isso -->
-            <div>
+        <!-- Filter for each role in the game -->
+        <section id="filter">
+            <button id="btn-All" class="filter-btn">All</button>
+            <button id="btn-top" class="filter-btn">Top</button>
+            <button id="btn-jg" class="filter-btn">Jungle</button>
+            <button id="btn-mid" class="filter-btn">Mid</button>
+            <button id="btn-adc" class="filter-btn">Adc</button>
+            <button id="btn-sup" class="filter-btn">Sup</button>
+        </section>
 
+        <section id="tier-list">
+            <!-- FF aos 15 -->
+            <div id="tier-list-S" class="container-card">
+                <div id="rank-s">
+                    <h2>S</h2>
+                </div>
+                <div class="champions-card">
+                    <h3>Champions: </h3>
+                </div>
             </div>
-
-            <!-- Tá potente -->
-            <div>
-
+            <!-- Tá fortinho -->
+            <div id="tier-list-A" class="container-card">
+                <div id="rank-a">
+                    <h2>A</h2>
+                </div>
+                <div class="champions-card">
+                    <h3>Champions: </h3>
+                </div>
             </div>
 
             <!-- Justo -->
-            <div>
-
+            <div id="tier-list-b" class="container-card">
+                <div id="rank-b">
+                    <h2>B</h2>
+                </div>
+                <div class="champions-card">
+                    <h3>Champions: </h3>
+                </div>
             </div>
 
             <!-- Só para os monos -->
-            <div>
-
+            <div id="tier-list-C" class="container-card">
+                <div id="rank-c">
+                    <h2>C</h2>
+                </div>
+                <div class="champions-card">
+                    <h3>Champions: </h3>
+                </div>
             </div>
 
             <!-- Pq tu joga disso?? -->
-            <div>
-
+            <div id="tier-list-D" class="container-card">
+                <div id="rank-d">
+                    <h2>d</h2>
+                </div>
+                <div class="champions-card">
+                    <h3>Champions: </h3>
+                </div>
             </div>
         </section>
-
         <!-- Aonde ficara todos os campeões posicionados. -->
         <section>
-
+            <div id="champions-deallocated" class="container-card">
+                <div id="title-card">
+                    <h3>All Champions</h3>
+                </div>
+                <div class="champions-card">
+                    <h3>Top: </h3>
+                    <div id="Aatrox" class="champion" draggable="true">
+                        <img src="#" alt="Image of the champion Aatrox">
+                        <h3>Aatrox</h3>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
     <footer>
-
+        <section id="start-footer">
+            <div class="logo">
+                <img src="./Images/Logo.png" alt="Logo of the web site">
+            </div>
+        </section>
+        <section>
+            <div id="footer-informations">
+                <h4>Julgamento Supremo</h4>
+                <p>
+                    The best tier list of league of legends of the all world.
+                    Create by Eduardo Lino from Brazil, this site is maked, just for study.
+                </p>
+            </div>
+            <div id="line-divider"></div>
+            <div id="footer-social">
+                <button class="btn-social-media">
+                    <img src="" alt="Creator's instagram buttom">
+                    <a href="#"></a>
+                </button>
+                <button class="btn-social-media">
+                    <img src="" alt="Creator's Facebook buttom">
+                    <a href="#"></a>
+                </button>
+                <button class="btn-social-media">
+                    <img src="" alt="Creator's TikTok buttom">
+                    <a href="#"></a>
+                </button>
+            </div>
+        </section>
+        <section id="footer-copyright">
+            <h5>Julgamento Supremo - @Copyright by Eduardo Lino</h5>
+        </section>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
