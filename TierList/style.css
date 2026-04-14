@@ -6,11 +6,11 @@
 
 :root {
     --background: linear-gradient(180deg, #1A0826, #2A0F3A, #3A0A4F);
-    --tierS: #00C853;
-    --tierA: #64DD17;
-    --tierB: #FFD600;
-    --tierC: #FF6E6E;
-    --tierD: #D50000;
+    --tierS: linear-gradient(90deg, #00C853, #9bb6a625);
+    --tierA: linear-gradient(90deg, #64DD17, #9bb6a625);
+    --tierB: linear-gradient(90deg, #FFD600, #9bb6a625);
+    --tierC: linear-gradient(90deg, #FF6E6E, #9bb6a625);
+    --tierD: linear-gradient(90deg, #D50000, #9bb6a625);
     --card-champions: #2E1A47;
     --container: #4A2A6A;
     --hover: #5E35B1;
@@ -23,13 +23,23 @@
 
 }
 
-body {
-    background: var(--background);
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
     color: var(--main-text);
 }
 
+body {
+    background: var(--background);
+    color: var(--main-text);
+    font-family: sans-serif;
+}
+
 header {
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +48,8 @@ header {
 
 .logo {
     width: 40%;
+    margin-left: -0.2rem;
+    max-width: 250px;
 }
 
 .logo img {
@@ -50,17 +62,25 @@ header {
 
 #menu-hamburger {
     width: 7%;
+    max-width: 40px;
 }
 
 #menu-hamburger img {
     width: 100%;
 }
 
+#main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 #filter {
     display: flex;
     overflow-x: auto;
-    padding: 1rem 10%;
     scrollbar-width: none;
+    margin-bottom: 2rem;
 }
 
 #filter::-webkit-scrollbar {
@@ -70,19 +90,238 @@ header {
 
 .filter-btn {
     border: none;
-    padding: 10px 20px;
+    padding: 8px 12px;
     border-radius: 0.25rem;
     background-color: var(--btn-inactive);
     color: var(--segundary-text);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s easein;
     white-space: nowrap;
 }
 
+.filter-btn:hover {
+    background-color: var(--hover);
+    color: var(--main-text);
+}
+
+.filter-btn.active {
+    background-color: var(--btn-active);
+    color: var(--main-text);
+    box-shadow: 0 0 10px rgba(106, 27, 154, 0.5);
+}
+
+#tier-list {
+    width: 95%;
+    margin: 0rem auto;
+}
+
+.container-card {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.125rem 1rem;
+}
+
+#rank-s {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--tierS);
+    color: #000;
+}
+
+#rank-a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--tierA);
+    color: #000;
+}
+
+#rank-b {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--tierB);
+    color: #000;
+}
+
+#rank-c {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--tierC);
+    color: #000;
+}
+
+#rank-d {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--tierD);
+    color: #000;
+}
+
 .champions-card {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 8px;
     min-height: 100px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px dashed red;
-    /* Pra você enxergar onde deve soltar! */
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#champions-deallocated {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#title-card h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.champion {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.image-champions {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.champion h3 {
+    color: var(--main-text);
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: -5px -1px 5px #000;
+    /* Sombra no TEXTO para conseguir ler sobre a foto */
+    position: absolute;
+    z-index: 2;
+}
+
+.champion img,
+.champion h3 {
+    pointer-events: none;
+}
+
+#main-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2.5rem 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 2rem;
+}
+
+#footer-informations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 260px;
+    gap: 0.5rem;
+}
+
+#footer-informations h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #c89b3c;
+    letter-spacing: 1px;
+}
+
+#footer-informations p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--desable-text);
+    line-height: 1.6;
+}
+
+#footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--segundary-text);
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-social-media:hover {
+    background: var(--hover);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(106, 27, 154, 0.5);
+}
+
+#footer-copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#footer-copyright h5 {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--desable-text);
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+@media (min-width: 420px) {
+
+    #links-acess {
+        display: block;
+    }
+
+    #links-acess ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    #menu-hamburger {
+        display: none;
+    }
 }
