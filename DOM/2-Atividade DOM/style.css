@@ -21,7 +21,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: var(--page-background);
-    font-family: var(--card-title-font);
+    font-family: var(--title-font);
     color: #000;
 }
 
