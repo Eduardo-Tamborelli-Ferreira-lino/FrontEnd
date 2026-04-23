@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-footer: #444;
+    --background: #333;
+    --btn-font-size: 12px;
+    --add-color: #2aa800;
+    --clear-color: #a00000;
+    --text-color: #f0f0fa;
+    --text-font-size: 16px;
+    --title-font-size: 24px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    background-color: #39413e;
+    border-radius: 0 0 30px 30px;
+}
+
+.logo {
+    font-family: "Roboto Slab", serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    padding: 5rem auto;
+    font-style: italic;
+    margin-bottom: 3rem;
+    color: aquamarine;
+}
+
+main {
+    gap: 10rem;
+}
+
+#display-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: "Roboto Slab", serif;
+    color: var(--text-color);
+    font-size: var(--title-font-size);
+    font-weight: 400;
+}
+
+#name h2 {
+    color: cadetblue;
+}
+
+#line-divider {
+    width: 100%;
+    border: 0.5px #f0f0fa76 solid;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.line-divider {
+    width: 100%;
+    border: 1px #f0f0fa76 solid;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#list {
+    width: 40%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+#users-list {
+    background-color: #9bc0c0;
+    border: 4px #f1f1f1 solid;
+    color: #333;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+#btns {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+#add-user {
+    text-align: center;
+    border-radius: 8px;
+}
+
+#user {
+    width: 30%;
+    border: 1px #f1f1f1 solid;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+#add {
+    background-color: var(--add-color);
+    box-shadow: 1px 1px 10px #00a043;
+}
+
+#clear {
+    background-color: var(--clear-color);
+    box-shadow: 1px 1px 10px var(--clear-color);
+    color: var(--text-color);
+}
+
+footer {
+    background-color: var(--background-footer);
+    text-align: center;
+    border-radius: 30px 30px 0 0;
+    padding: 3rem;
+    margin-top: 5rem;
+}
