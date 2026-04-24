@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Title-font: "Inter";
+    --Text-font: "Open Sans";
+    --Numbers-color: #FAAD13;
+    --
+    --Text-color: #5A7184;
+    --color-track: #F9FBFE;
+    --color-header: rgba(250, 173, 19, 0.1);
+    --links-color: #183B56;
+}
+
+a{
+    text-decoration: none;
+    color: var(--links-color);
+}
+
+li{
+    list-style: none;
+    cursor: pointer;
+}
+
+body{
+    width: 20rem;
+    height: 100vh;
+}
+
+#background-start{
+    width: 20rem;
+    height: 36.125rem;
+    background-color: var(--color-header);
+    position: absolute;
+    z-index: -2;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+    gap: 10.688rem;
+    margin: 1.125rem 1.5rem 3rem 1.125rem;
+}
+
+#menu-desktop{
+    display: none;
+}
+
+#hero{
+    width: 20rem;
+    text-align: center;
+}
+
+#hero-title h1{
+    font-family: var(--Title-font);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.013rem;
+}

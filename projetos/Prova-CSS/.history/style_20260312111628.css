@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Title-font: "Inter";
+    --Text-font: "Open Sans";
+    --Numbers-color: #FAAD13;
+    --Text-color: #5A7184;
+    --color-track: #F9FBFE;
+    --color-header: rgba(250, 173, 19, 0.1);
+    --links-color: #183B56;
+}
+
+a{
+    text-decoration: none;
+    color: var(--links-color);
+}
+
+li{
+    list-style: none;
+    cursor: pointer;
+}
+
+body{
+    width: 20rem;
+    height: 100vh;
+}
+
+#background-start{
+    width: 20rem;
+    height: 36.125rem;
+    background-color: var(--color-header);
+    position: relative;
+}
