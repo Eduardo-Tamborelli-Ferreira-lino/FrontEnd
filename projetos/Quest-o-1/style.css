@@ -1,0 +1,296 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    word-wrap: wrap;
+    list-style: none;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.Título {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#imagem-principal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(55%);
+    /*escurece a imagem*/
+}
+
+
+.conteudo-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.conteudo-banner h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.conteudo-banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botao {
+    background-color: #ff6600;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+
+.body img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(55%);
+}
+
+.Informacao{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 100%;
+}
+
+.Informacao h1{
+    display: flex;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.Destinos {
+    display: flex;
+    gap: 25px;
+    margin-top: 150px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Destinos li{
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.Destinos li h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.Destinos li p{
+    color: rgba(0, 0, 0, 0.706);
+    font-size: 24px;
+}
+
+.Destinos li:hover{
+    transform: translate(-5px);
+}
+
+.Destinos img{
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.Destinos h3,
+.Destinos p,
+.Destinos a {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.botao-mais {
+    display: flex;
+    width: 34%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    height: 25px;
+    text-align: center;
+    background-color: #ff6600c3;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.botao-mais:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+
+.botao-Retorno {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: rgb(4, 4, 4);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.botao-Retorno img{
+    width: 50px;
+    height: auto;
+}
+
+.botao-Retorno:hover img {
+    transform: scale(1.05);
+}
+
+/*Paises*/
+
+.Conteudo-paises {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(55%);
+}
+
+.Informacao-paises{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -49%);
+    width: 100%;
+}
+
+.Informacao-paises h2{
+    display: flex;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #f0f0fa;
+}
+
+.Informacao-paises h3{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #f0f0fa;
+}
+
+.Informacao-paises h4{
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #f0f0fa;
+}
+
+.Informacao-paises h5{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Informacao-paises a{
+    color: #f0f0fa;
+}
+
+.Destinos-paises {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Destinos-paises li{
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.Destinos-paises li h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.Destinos-paises li p{
+    color: rgba(0, 0, 0, 0.706);
+    font-size: 24px;
+}
+
+.Destinos-paises li:hover{
+    transform: translate(-5px);
+}
+
+.Destinos-paises img{
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.Destinos-paises h3,
+.Destinos-paises p,
+.Destinos-paises a {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.Rodape {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    color: rgb(255, 255, 255);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
