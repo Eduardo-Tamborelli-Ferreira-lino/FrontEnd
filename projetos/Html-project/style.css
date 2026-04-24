@@ -1,0 +1,85 @@
+*{
+    padding: 0%;
+    margin: 0;
+    word-wrap: wrap;
+    /* word-break: break-all; */
+}
+
+@font-face{
+    font-family: 'MinhaFonte';     /* nome que você escolhe */
+    src: url('./fonts/MinhaFonte.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: #f4d04e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'MinhaFonte' sans-serif;
+}
+
+.Meio{
+    width: 40vh;
+    height: 50vh;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 7px 5px 0px black;
+    margin-top: 30px;
+}
+
+.ImagemTop {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0px 18px 0px;
+}
+
+.Meio.ImagemTop {
+    width: 60%;
+    height: auto;
+}
+
+.ImagemTop img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.botaozinho{
+    width: 28%;
+    height: 5%;
+    background-color: #f4d04e;
+    color: black;
+    border-radius: 5px;
+    margin-left: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+}
+
+.Published{
+    color: grey;
+    margin-left: 23px;
+    margin-top: 13px;
+    font-size: 16px;
+}
+
+.HTML{
+    color: black;
+    margin-left: 23px;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.Conteudo{
+    margin-right: 23px;
+    margin-left: 23px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: grey;
+}
