@@ -1,0 +1,66 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    word-wrap: wrap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(./Fonte/Inter-VariableFont_opsz\,wght.ttf);
+    font-weight: 700px;
+    font-style: normal;
+    white-space: 8px;
+}
+
+@font-face {
+    font-family: 'Lexa';
+    src: url(./Lexa/Lexend_Deca/LexendDeca-VariableFont_wght.ttf );
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: rgb(9, 11, 26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: rgb(28, 26, 56);
+    width: 57.7vw;
+    height: 49vh;
+    border-radius: 8px;
+}
+
+.Imagem{
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: end;
+}
+
+.card.Imagem{
+    height: auto;
+    width: 100%;
+}
+
+.Imagem img{
+    border-radius: 0px 8px 8px 0px;
+    object-fit: cover;
+}
+
+.Titulo{
+    font-family: 'Inter';
+    letter-spacing: 1px;
+    font-size: 35px;
+    color: aliceblue;
+    padding: 73px 0rem 0rem 70px;
+}
+
+span{
+    color: rgb(170, 92, 219);
+}
