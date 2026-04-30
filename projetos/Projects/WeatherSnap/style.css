@@ -1,0 +1,478 @@
+/* ==========================================================================
+   CSS RESET & VARIABLES
+   ========================================================================== */
+   *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Fonts */
+    --font-primary: 'Outfit', sans-serif;
+    
+    /* Base Colors */
+    --color-white: #ffffff;
+    --color-text-main: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.7);
+    --color-text-faded: rgba(255, 255, 255, 0.5);
+    
+    /* Glass Colors */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg-hover: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Highlight Colors */
+    --color-yellow: #fde047;
+    --color-blue-accent: #3b82f6;
+    --color-blue-accent-hover: #2563eb;
+    --color-error: #fca5a5;
+    
+    /* Default Background Gradient */
+    --bg-gradient: linear-gradient(to bottom right, #60a5fa, #4f46e5);
+}
+
+/* ==========================================================================
+   THEME CLASSES (Set by JS)
+   ========================================================================== */
+body.theme-sunny-day { --bg-gradient: linear-gradient(to bottom right, #60a5fa, #4f46e5); }
+body.theme-sunny-night { --bg-gradient: linear-gradient(to bottom right, #1f2937, #111827); }
+body.theme-cloudy-day { --bg-gradient: linear-gradient(to bottom right, #93c5fd, #0284c7); }
+body.theme-cloudy-night { --bg-gradient: linear-gradient(to bottom right, #1e293b, #0f172a); }
+body.theme-overcast-day { --bg-gradient: linear-gradient(to bottom right, #9ca3af, #4b5563); }
+body.theme-overcast-night { --bg-gradient: linear-gradient(to bottom right, #374151, #111827); }
+body.theme-rain-day { --bg-gradient: linear-gradient(to bottom right, #475569, #1e293b); }
+body.theme-rain-night { --bg-gradient: linear-gradient(to bottom right, #1f2937, #000000); }
+body.theme-storm-day { --bg-gradient: linear-gradient(to bottom right, #312e81, #0f172a); }
+body.theme-storm-night { --bg-gradient: linear-gradient(to bottom right, #1e1b4b, #000000); }
+body.theme-snow-day { --bg-gradient: linear-gradient(to bottom right, #dbeafe, #93c5fd); }
+body.theme-snow-night { --bg-gradient: linear-gradient(to bottom right, #334155, #0f172a); }
+
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text-main);
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    transition: background 1s ease-in-out;
+}
+
+ul { list-style: none; }
+button { cursor: pointer; border: none; font-family: inherit; }
+input { font-family: inherit; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+.hidden { display: none !important; }
+.text-yellow { color: var(--color-yellow); }
+.text-error { color: var(--color-error); }
+.drop-shadow { filter: drop-shadow(0 4px 3px rgba(0,0,0,0.2)); }
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+.app-container {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* Left Column */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Right Column */
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   COMPONENTS
+   ========================================================================== */
+
+/* Header */
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.app-header .icon {
+    font-size: 2.5rem;
+}
+.app-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+.app-header h1 span {
+    color: var(--color-text-muted);
+}
+.app-header p {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* Glass Panels */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 30px var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-panel-lg {
+    padding: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Search Bar */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--glass-border);
+    transition: all 0.2s;
+}
+.search-wrapper:focus-within {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+.search-icon {
+    font-size: 1.25rem;
+    margin: 0 0.5rem;
+    color: var(--color-text-muted);
+}
+.search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+.search-input::placeholder {
+    color: var(--color-text-muted);
+}
+.search-btn {
+    background: var(--color-blue-accent);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-btn:hover {
+    background: var(--color-blue-accent-hover);
+}
+
+/* Error Message */
+.error-msg {
+    font-size: 0.875rem;
+    margin-top: 0.75rem;
+    padding: 0 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Suggestion Card */
+.suggestion-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.2s;
+}
+.suggestion-card:hover {
+    transform: scale(1.02);
+}
+.suggestion-icon-bg {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem;
+    border-radius: 1rem;
+    flex-shrink: 0;
+}
+.suggestion-icon-bg i {
+    font-size: 1.5rem;
+}
+.suggestion-content h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+.suggestion-content p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Blob Decoration */
+.blob {
+    position: absolute;
+    top: -6rem;
+    right: -6rem;
+    width: 16rem;
+    height: 16rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+/* Loader */
+.loader-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: inherit;
+}
+.loader-icon {
+    font-size: 3rem;
+    animation: spin 1s linear infinite;
+}
+
+/* Weather Info Top */
+.weather-details-wrapper {
+    transition: opacity 0.5s;
+}
+.weather-details-wrapper.loading-state {
+    opacity: 0.5;
+}
+
+.current-weather-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.current-text-info {
+    text-align: center;
+    z-index: 1;
+}
+.location-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+.current-date-text {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+.temp-wrapper {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+}
+.main-temp {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+.temp-details {
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+.weather-desc-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    text-transform: capitalize;
+}
+.feels-like-text {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+.main-icon-container {
+    width: 10rem;
+    height: 10rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.main-icon-container i {
+    font-size: 6rem;
+    color: rgba(255,255,255,0.9);
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+}
+
+/* Extras (Humidity, Wind) */
+.extras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.extra-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.extra-card i {
+    font-size: 1.5rem;
+}
+.extra-card .text-blue { color: #93c5fd; }
+.extra-card .text-gray { color: #d1d5db; }
+.extra-info p:first-child {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+.extra-info p:last-child {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+/* Forecast List */
+.forecast-section h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.forecast-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+}
+.forecast-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.forecast-day {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+.forecast-icon {
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.forecast-icon i {
+    font-size: 2rem;
+    color: rgba(255,255,255,0.8);
+}
+.forecast-temps {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+.forecast-temps .min-temp {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-faded);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Responsiveness)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .app-container {
+        grid-template-columns: 1fr 2fr;
+    }
+    .current-weather-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .current-text-info {
+        text-align: left;
+    }
+    .temp-wrapper {
+        justify-content: flex-start;
+    }
+    .location-title {
+        font-size: 3rem;
+    }
+}

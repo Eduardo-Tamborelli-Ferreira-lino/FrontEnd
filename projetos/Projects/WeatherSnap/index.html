@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSnap</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Vanilla CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="app-body">
+
+    <div class="app-container">
+
+        <!-- Left Column: Search & Current Weather -->
+        <div class="sidebar">
+
+            <!-- Logo -->
+            <header class="app-header animate-fade-in">
+                <i class="ph ph-cloud-sun icon text-yellow drop-shadow"></i>
+                <div>
+                    <h1>Weather<span>Snap</span></h1>
+                    <p>Previsão em um estalo</p>
+                </div>
+            </header>
+
+            <!-- Search Section -->
+            <section class="glass-panel search-section animate-fade-in" style="animation-delay: 0.1s;">
+                <div class="search-wrapper">
+                    <i class="ph ph-map-pin search-icon"></i>
+                    <input type="text" id="city-input" placeholder="Buscar cidade..." class="search-input">
+                    <button id="search-btn" class="search-btn">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <!-- Error Message Container -->
+                <p id="error-message" class="error-msg text-error hidden">
+                    <i class="ph ph-warning-circle"></i> Cidade não encontrada.
+                </p>
+            </section>
+
+            <!-- Smart Suggestion -->
+            <section class="glass-panel suggestion-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="suggestion-icon-bg">
+                    <i class="ph ph-lightbulb text-yellow"></i>
+                </div>
+                <div class="suggestion-content">
+                    <h3>Dica Inteligente</h3>
+                    <p id="smart-suggestion">Carregando sugestão...</p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Right Column: Forecast Details -->
+        <div class="glass-panel glass-panel-lg main-content animate-fade-in" style="animation-delay: 0.3s;">
+            <!-- Decorative blur blob -->
+            <div class="blob"></div>
+
+            <!-- Loading State -->
+            <div id="loading-spinner" class="loader-overlay hidden">
+                <i class="ph ph-spinner-gap loader-icon"></i>
+            </div>
+
+            <div id="weather-content" class="weather-details-wrapper loading-state">
+                <!-- Current Weather -->
+                <div class="current-weather-top">
+                    <div class="current-text-info">
+                        <h2 id="location-name" class="location-title">---</h2>
+                        <p id="current-date" class="current-date-text">---</p>
+
+                        <div class="temp-wrapper">
+                            <span id="current-temp" class="main-temp">--°</span>
+                            <div class="temp-details">
+                                <p id="weather-desc" class="weather-desc-text">---</p>
+                                <p class="feels-like-text">Sensação de <span id="feels-like">--°</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Animated Icon -->
+                    <div class="main-icon-container">
+                        <img id="current-icon" src="" alt="Weather Icon" class="hidden" />
+                        <i id="current-icon-placeholder" class="ph ph-cloud-sun"></i>
+                    </div>
+                </div>
+
+                <!-- Extras (Humidity, Wind) -->
+                <div class="extras-grid">
+                    <div class="extra-card">
+                        <i class="ph ph-drop text-blue"></i>
+                        <div class="extra-info">
+                            <p>Umidade</p>
+                            <p id="humidity">--%</p>
+                        </div>
+                    </div>
+                    <div class="extra-card">
+                        <i class="ph ph-wind text-gray"></i>
+                        <div class="extra-info">
+                            <p>Vento</p>
+                            <p id="wind-speed">-- km/h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3-Day Forecast -->
+                <div class="forecast-section">
+                    <h3>Próximos 3 Dias</h3>
+                    <div id="forecast-container" class="forecast-grid">
+                        <!-- Card 1 -->
+                        <div class="forecast-card">
+                            <p id="day-1-name" class="forecast-day">---</p>
+                            <div class="forecast-icon">
+                                <img id="day-1-icon" src="" alt="Icon" class="hidden" />
+                                <i id="day-1-icon-placeholder" class="ph ph-cloud"></i>
+                            </div>
+                            <p class="forecast-temps"><span id="day-1-max">--</span>° <span class="min-temp">/ <span
+                                        id="day-1-min">--</span>°</span></p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="forecast-card">
+                            <p id="day-2-name" class="forecast-day">---</p>
+                            <div class="forecast-icon">
+                                <img id="day-2-icon" src="" alt="Icon" class="hidden" />
+                                <i id="day-2-icon-placeholder" class="ph ph-cloud"></i>
+                            </div>
+                            <p class="forecast-temps"><span id="day-2-max">--</span>° <span class="min-temp">/ <span
+                                        id="day-2-min">--</span>°</span></p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="forecast-card">
+                            <p id="day-3-name" class="forecast-day">---</p>
+                            <div class="forecast-icon">
+                                <img id="day-3-icon" src="" alt="Icon" class="hidden" />
+                                <i id="day-3-icon-placeholder" class="ph ph-cloud"></i>
+                            </div>
+                            <p class="forecast-temps"><span id="day-3-max">--</span>° <span class="min-temp">/ <span
+                                        id="day-3-min">--</span>°</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

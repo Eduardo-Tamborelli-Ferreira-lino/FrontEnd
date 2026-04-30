@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "zenMode.hideActivityBar": true,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": true
 }

@@ -12,54 +12,44 @@ Este repositório reúne **toda a minha jornada de aprendizado em desenvolviment
 
 ## 🗂️ Estrutura de Pastas
 
-```
+```text
 FrontEnd/
-├── html/                        # Projetos e estudos de HTML & CSS
-│   ├── estudo-recuperacao/      # Estudos de recuperação e revisão
-│   ├── framework-frontend/      # Estudos de frameworks (Bootstrap, Tailwind)
-│   │   ├── BootStrap/
-│   │   └── Tailwind/
-│   └── talent-hive/             # Landing page TalentHive
-│
-├── javascript/                  # Projetos e estudos de JavaScript
-│   ├── dom/                     # Manipulação do DOM
-│   │   ├── atividade-01/        # Primeira atividade DOM
-│   │   └── atividade-02/        # Segunda atividade DOM
-│   ├── estudo-js/               # Estudos gerais de JavaScript
-│   │   ├── Lista-de-exercicio/  # Lista de exercícios JS
-│   │   └── Modularizacao/       # Módulos ES6 e boas práticas
-│   ├── tier-list/               # Projeto Tier List (Drag & Drop)
-│   └── web-storage/             # Projeto Web Storage (localStorage)
-│
-└── projetos/                    # Projetos completos migrados
-    ├── Blog/                    # Blog de automobilismo
+└── projetos/
     ├── Capsula-do-Tempo/        # Projeto cápsula do tempo
-    ├── Estudo-HTML-1/           # Primeiro estudo formal de HTML
-    ├── Html-project/            # Projeto layout com fontes customizadas
-    ├── Kristian-Sabor-Arte/     # Site de restaurante
-    ├── lista-presenca-turma/    # Atividade de lista de presença (Git Flow)
-    ├── Prova-CSS/               # Prova prática de CSS (dashboard)
-    ├── Quest-o-1/               # Site de turismo multi-página
-    └── TalentHive/              # Plataforma de talentos (landing page)
+    ├── html/                    # Projetos e estudos de HTML & CSS
+    │   ├── 700RPM/              # Projeto 700RPM
+    │   ├── estudo-recuperacao/  # Estudos de recuperação e revisão
+    │   ├── framework-frontend/  # Estudos de frameworks (Bootstrap, Tailwind)
+    │   ├── Html-project/        # Projeto layout com fontes customizadas
+    │   ├── Kristian-Sabor-Arte/ # Site de restaurante
+    │   ├── Prova-CSS/           # Prova prática de CSS (dashboard)
+    │   ├── Quest-o-1/           # Site de turismo multi-página
+    │   └── TalentHive/          # Plataforma de talentos (landing page)
+    ├── javascript/              # Projetos e estudos de JavaScript
+    │   ├── dom/                 # Atividades de Manipulação do DOM
+    │   ├── estudo-js/           # Estudos gerais de JavaScript (Módulos, Exercícios)
+    │   ├── tier-list/           # Projeto Tier List (Drag & Drop)
+    │   └── web-storage/         # Projeto Web Storage (localStorage)
+    └── Projects/
+        └── WeatherSnap/         # Dashboard de Previsão do Tempo
 ```
 
 ---
 
 ## 🚀 Projetos em Destaque
 
-### 🏎️ Blog — Blog de Automobilismo
-> `projetos/Blog/`
+### 🌤️ WeatherSnap — Previsão do Tempo
+> `projetos/Projects/WeatherSnap/`
 
-Site completo de blog sobre motorsport com múltiplas páginas e categorias.
+Dashboard responsivo de previsão do tempo integrado a uma API meteorológica, com temas dinâmicos e dicas contextuais.
 
-- **Tecnologias:** HTML5, CSS3
-- **Destaques:** Navegação multi-página, seções para F1, MotoGP, WRC, Endurance, Indycar e Le Mans
-- **Arquivos:** `index.html`, `style.css`, `Paginas/` (6 sub-páginas)
+- **Tecnologias:** HTML5, TailwindCSS, JavaScript, Fetch API
+- **Destaques:** Integração com API REST, theming dinâmico, ícones SVG, design responsivo.
 
 ---
 
 ### 🌍 Quest-o-1 — Site de Turismo
-> `projetos/Quest-o-1/`
+> `projetos/html/Quest-o-1/`
 
 Site de turismo com múltiplos destinos internacionais (Áustria, Japão, Suíça).
 
@@ -70,7 +60,7 @@ Site de turismo com múltiplos destinos internacionais (Áustria, Japão, Suíç
 ---
 
 ### 🍽️ Kristian Sabor & Arte — Site de Restaurante
-> `projetos/Kristian-Sabor-Arte/`
+> `projetos/html/Kristian-Sabor-Arte/`
 
 Landing page para restaurante com design moderno e apresentação de pratos.
 
@@ -80,7 +70,7 @@ Landing page para restaurante com design moderno e apresentação de pratos.
 ---
 
 ### 💼 TalentHive — Plataforma de Talentos
-> `projetos/TalentHive/` e `html/talent-hive/`
+> `projetos/html/TalentHive/`
 
 Landing page profissional para plataforma de recrutamento e talentos.
 
@@ -90,7 +80,7 @@ Landing page profissional para plataforma de recrutamento e talentos.
 ---
 
 ### 📊 Prova CSS — Dashboard Analytics
-> `projetos/Prova-CSS/`
+> `projetos/html/Prova-CSS/`
 
 Prova prática que reproduz um dashboard de analytics com CSS puro.
 
@@ -100,7 +90,7 @@ Prova prática que reproduz um dashboard de analytics com CSS puro.
 ---
 
 ### 🎮 Tier List — Drag & Drop
-> `javascript/tier-list/`
+> `projetos/javascript/tier-list/`
 
 Aplicação interativa de Tier List para ranquear campeões de League of Legends.
 
@@ -111,7 +101,7 @@ Aplicação interativa de Tier List para ranquear campeões de League of Legends
 ---
 
 ### 💾 Web Storage — Gerenciador de Dados
-> `javascript/web-storage/`
+> `projetos/javascript/web-storage/`
 
 Aplicação que demonstra o uso de `localStorage` para persistência de dados no browser.
 
@@ -120,8 +110,26 @@ Aplicação que demonstra o uso de `localStorage` para persistência de dados no
 
 ---
 
+### 🏎️ 700RPM
+> `projetos/html/700RPM/`
+
+Projeto temático de automobilismo (700RPM).
+
+- **Tecnologias:** HTML5, CSS3
+
+---
+
+### ⏳ Cápsula do Tempo
+> `projetos/Capsula-do-Tempo/`
+
+Projeto voltado para registrar mensagens ou objetivos para o futuro.
+
+- **Tecnologias:** HTML5, CSS3
+
+---
+
 ### 🎨 Frameworks CSS
-> `html/framework-frontend/`
+> `projetos/html/framework-frontend/`
 
 Estudos práticos dos principais frameworks de CSS:
 
@@ -132,20 +140,13 @@ Estudos práticos dos principais frameworks de CSS:
 
 ---
 
-### 🧩 Manipulação do DOM
-> `javascript/dom/`
+### 🧩 Manipulação do DOM e JavaScript
+> `projetos/javascript/dom/` e `projetos/javascript/estudo-js/`
 
-Duas atividades práticas de manipulação do DOM com JavaScript puro.
+Atividades práticas de manipulação do DOM e conceitos aprofundados com JavaScript puro.
 
-- **Atividade 01:** Seleção e manipulação de elementos, eventos
-- **Atividade 02:** CRUD dinâmico, criação/remoção de elementos no DOM
-
----
-
-### 📦 Modularização JavaScript
-> `javascript/estudo-js/Modularizacao/`
-
-Estudos de ES6 Modules com `import`/`export`, separação de responsabilidades e boas práticas.
+- **DOM:** Seleção e manipulação de elementos, eventos, CRUD dinâmico, criação/remoção de elementos no DOM
+- **ES6 e Boas Práticas:** Estudos de ES6 Modules com `import`/`export`, separação de responsabilidades e exercícios.
 
 ---
 
@@ -163,14 +164,14 @@ Estudos de ES6 Modules com `import`/`export`, separação de responsabilidades e
 
 ## 📈 Evolução do Aprendizado
 
-```
+```text
 HTML Básico → CSS Estilização → Layout Responsivo
      ↓
 Frameworks (Bootstrap/Tailwind)
      ↓
-JavaScript DOM → Web APIs (localStorage) → Drag & Drop
+JavaScript DOM → Web APIs (localStorage/Fetch) → Drag & Drop
      ↓
-Projetos completos multi-página
+Projetos completos multi-página e consumo de APIs
 ```
 
 ---
