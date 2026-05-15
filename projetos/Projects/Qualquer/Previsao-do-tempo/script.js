@@ -4,7 +4,7 @@ const searchBtn = document.getElementById("search-btn");
 
 
 // Main informations
-const cityCountry = document.getElementById("cidade-aprensentar");
+const cityCountry = document.getElementById("cidade-apresentar");
 const currentTemp = document.getElementById("temperatura");
 const windSpeed = document.getElementById("vento");
 const rainChance = document.getElementById("umidade");
@@ -30,7 +30,7 @@ const averageTemp3 = document.getElementById("temp-3");
 const sugestionMessage = document.getElementById("mensagem");
 
 searchBtn.addEventListener("click", () => {
-    const city = cityInput.ariaValueMax;
+    const city = cityInput.value;
     searchCity(city);
 });
 
@@ -52,11 +52,11 @@ async function searchCity(city) {
         const weatherResponse = await fetch(weatherUrl);
         const weatherJson = await weatherResponse.json();
 
-        const tempJson = weatherJson.current_weather.temperatur;
+        const tempJson = weatherJson.current_weather.temperature;
         const windSpeedJson = weatherJson.current_weather.windspeed;
         const dateJson = weatherJson.current_weather.time;
         const codeJson = weatherJson.current_weather.weathercode;
-        const objectDate = new Date(date);
+        const objectDate = new Date(dateJson);
         const options = {weekday: "long", day: "numeric" , month:"long"};
         const rainChanceJson = weatherJson.hourly.precipitation_probability[0];
         const maxTempJson = weatherJson.daily.temperature_2m_max;
@@ -66,15 +66,20 @@ async function searchCity(city) {
         const message = sugestion (tempJson, rainChanceJson, codeJson);
         sugestionMessage.innerText = message;
 
-        const forecastDay1 = translateWeather(climaDados.daily.weather_code[1]);
+        const forecastDay1 = translateWeather(weatherJson.daily.weather_code[1]);
         icon1.src = forecastDay1.img;
         
-        const forecastDay2 = translateWeather(climaDados.daily.weather_code[2]);
+        const forecastDay2 = translateWeather(weatherJson.daily.weather_code[2]);
         icon2.src = forecastDay2.img;
 
-        const forecastDay3 = translateWeather(climaDados.daily.weather_code[3]);
+        const forecastDay3 = translateWeather(weatherJson.daily.weather_code[3]);
         icon3.src = forecastDay3.img;
         
+        const formatedDate = (dateString) => {
+            const date = new Date(dateString);
+            return date.toLocaleDateString("en", {weekday: "short"}).replace(".", "");
+        }
+
         const someDay1 = maxTempJson[1] + minTempJson[1];
         const mediaDay1 = (someDay1 / 2).toFixed(1);
 
@@ -84,7 +89,7 @@ async function searchCity(city) {
         const someDay3 = maxTempJson[3] + minTempJson[3];
         const mediaDay3 = (someDay3 / 2).toFixed(1);
 
-        let formatDate = dataObjeto.toLocaleDateString('en', options);
+        let formatDate = objectDate.toLocaleDateString('en', options);
 
         formatDate = formatDate.charAt(0).toUpperCase() + formatDate.slice(1);
 
@@ -92,13 +97,15 @@ async function searchCity(city) {
         averageTemp2.innerText = `${mediaDay2}`;
         averageTemp3.innerText = `${mediaDay3}`;
 
-        day1.innerText = weekDaysJson[1];
-        day2.innerText = weekDaysJson[2];
-        day3.innerText = weekDaysJson[3];
+        day1.innerText = formatedDate(weekDaysJson[1]);
+        day2.innerText = formatedDate(weekDaysJson[2]);
+        day3.innerText = formatedDate(weekDaysJson[3]);
 
         cityCountry.innerText = `${name}, ${country}`;
 
-        date
+        currentTemp.innerText = `${tempJson}°C`;
+        windSpeed.innerText = `${windSpeedJson}°Km/h`;
+        rainChance.innerText = `${rainChanceJson}%`;
     }
     catch(error) {
         console.log("Error in the search", error)
@@ -113,3 +120,20 @@ function translateWeather(code) {
     if(code >= 80 && code <= 82) return{text: "rain showers", img: "assets/weather-icon/ceu-limpo.png"};
     if(code >= 95) return{text: "storm", img: "assets/weather-icon/ceu-limpo.png"};
 }
+
+function sugestion(tempJson, rainChanceJson, codeJson) {
+
+    if(rainChanceJson > 50 || codeJson >= 80) {
+        return 'Take an umbrella!';
+    }
+
+    else if (tempJson < 15) {
+        return 'Ideal for a walk in the park';
+    }
+
+    return 'Have a nice day 😊';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    searchCity('Jaraguá do Sul');
+});

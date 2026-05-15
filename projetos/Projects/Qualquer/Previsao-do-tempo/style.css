@@ -1,347 +1,416 @@
-body{
-    background-color:rgb(118 179 251);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===================== THEMES ===================== */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', Arial, sans-serif;
+    color: white;
+    padding: 1.5rem 1rem 3rem;
+    background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 50%, #6c5ce7 100%);
+    transition: background 0.8s ease;
+}
+
+/* ---- Sunny ---- */
+body.sunny {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 40%, #e17055 100%);
+}
+
+/* ---- Rainy ---- */
+body.rainy {
+    background: linear-gradient(135deg, #2d3436 0%, #253065 50%, #1a1a6e 100%);
+}
+
+/* ---- Night ---- */
+body.night {
+    background: linear-gradient(135deg, #0f0c29 0%, #1a1a5e 50%, #24243e 100%);
+}
+
+/* ===================== TITLE ===================== */
+h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    animation: fadeDown 0.6s ease both;
+}
+
+/* ===================== TOPICO (NAV) ===================== */
+#topico {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 26.3rem;
+    margin-bottom: 0.5rem;
+    animation: fadeDown 0.7s ease both;
+}
+
+#inicio {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.35);
+    width: 5.5rem;
+    height: 2.2rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    letter-spacing: 0.03rem;
+}
+
+#inicio:hover {
+    background: rgba(255,255,255,0.38);
+    transform: translateY(-2px);
+}
+
+#comparar {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 2rem;
+    transition: background 0.25s, transform 0.2s;
+}
+
+#comparar:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
+#numero {
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: white;
+    color: #6c5ce7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ===================== BUSCA ===================== */
+#busca {
+    display: flex;
+    flex-direction: row;
+    width: 26.3rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.35);
+    justify-content: space-between;
+    height: 3rem;
+    align-items: center;
+    border-radius: 0.8rem 0.8rem 0 0;
+    overflow: hidden;
+    animation: fadeDown 0.8s ease both;
+    transition: background 0.8s ease;
+}
+
+#busca input {
+    font-size: 0.95rem;
+    margin-left: 1.1rem;
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    flex: 1;
+    min-width: 0;
+}
+
+#busca input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#busca button {
+    height: 3rem;
+    width: 5.5rem;
+    background: rgba(255, 255, 255, 0.219);
+    border: none;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.15s;
+    letter-spacing: 0.04rem;
+}
+
+#busca button:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+#busca button:active {
+    transform: scale(0.97);
+}
+
+/* ===================== CARD PRINCIPAL ===================== */
+#principal {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-top: none;
+    width: 26.3rem;
+    border-radius: 0 0 1.2rem 1.2rem;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+    display: flex;
     flex-direction: column;
-    color:white;
-    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    padding: 1rem 0 1.4rem;
+    animation: fadeUp 0.7s ease both;
+    transition: background 0.8s ease, box-shadow 0.8s ease;
+}
+
+/* ---- Cidade + Compartilhamento ---- */
+#cidade-compartilhamento {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 23.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#cidade-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+#cidade-apresentar {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.01rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+#data {
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.04rem;
+    font-size: 0.82rem;
+    font-weight: 400;
+}
+
+#compartilhamento {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+#compartilhamento p {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.35);
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+}
+
+#compartilhamento p:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.1);
+}
+
+/* ---- Temperatura ---- */
+#div-temperatura {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.8rem 0 0.2rem;
+}
+
+#div-temperatura p {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03rem;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+#current-icon {
+    font-size: 3rem !important;
+    font-weight: 400 !important;
+    line-height: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ---- Clima + Vento/Umidade ---- */
+#div-clima {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+#clima {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    opacity: 0.95;
+}
+
+#vento-umidade {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+#vento-umidade p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 500;
+    background: rgba(255,255,255,0.15);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2rem;
+}
+
+/* ---- Mensagem ---- */
+#mensagem {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 0.6rem;
+    width: 23.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#mensagem p {
+    text-align: center;
+    margin: 0.7rem 1rem;
+    line-height: 1.6;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+}
+
+/* ---- Próximos Dias ---- */
+#msg-proximosDias {
+    width: 23.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.5rem;
+}
+
+#proximosDias {
+    display: flex;
+    width: 23.5rem;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.dias {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255,255,255,0.28);
+    flex: 1;
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    gap: 0.3rem;
+    cursor: default;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.dias:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateY(-3px);
+}
+
+.diaDaSemana {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
 }
 
 .clima {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
 }
 
-.sunny {
-    background-color: rgb(100, 149, 237);
+.temperatura {
+    font-size: 0.95rem;
+    font-weight: 700;
 }
 
+/* ===================== TEMAS (SOBREPOSIÇÃO) ===================== */
 
-.rainy{
-    background-color: rgb(41, 63, 124);
+/* Sunny overrides */
+body.sunny #numero { color: #e17055; }
+body.sunny #busca { background: rgba(255,255,255,0.25); }
+body.sunny #busca button { background: rgba(255,200,100,0.45); }
+body.sunny #principal { background: rgba(255,255,255,0.22); }
+body.sunny #mensagem { background: rgba(255,200,80,0.2); }
+body.sunny .dias { background: rgba(255,200,80,0.2); }
 
-    #topico{
-        #inicio{
-            background-color: rgb(83, 116, 206);
-    }
-    
-    #comparar{
-        #numero{
-            color: rgb(3, 20, 53);
-        }
-    }
-    
-    
-    }
-    
-        #busca{
-            background-color: rgb(83, 116, 206);
-    
-            button{
-                background-color: rgb(92, 129, 230);
-            }
-        }
-    
-        #principal{
-            background-color: rgb(83, 116, 206);
-            box-shadow: 0 13px 16px rgba(255, 255, 255, 0.096);
-        
-            #cidade-compartilhamento{
-            #compartilhamento{
-               
-                p{
-                    background-color: rgb(92, 129, 230);
-                }
-            }
-    
-        }
-    
-    }
-    
-    #mensagem{
-        background-color: rgb(92, 129, 230);
-    }
-    
-    #proximosDias{
-    
-        .dias{
-            background-color: rgb(92, 129, 230);
-        }
-    
-    }
-    }
+/* Rainy overrides */
+body.rainy #numero { color: #253065; }
+body.rainy #busca { background: rgba(30,50,120,0.55); border-color: rgba(100,140,255,0.3); }
+body.rainy #busca button { background: rgba(50,80,180,0.6); }
+body.rainy #principal { background: rgba(30,50,120,0.4); border-color: rgba(100,140,255,0.25); box-shadow: 0 20px 48px rgba(0,0,0,0.35); }
+body.rainy #mensagem { background: rgba(50,80,180,0.35); }
+body.rainy .dias { background: rgba(50,80,180,0.35); }
 
+/* Night overrides */
+body.night #numero { color: #0f0c29; }
+body.night #busca { background: rgba(15,12,41,0.6); border-color: rgba(150,130,255,0.3); }
+body.night #busca button { background: rgba(50,40,120,0.6); }
+body.night #principal { background: rgba(15,12,41,0.45); border-color: rgba(150,130,255,0.2); box-shadow: 0 20px 48px rgba(0,0,0,0.45); }
+body.night #mensagem { background: rgba(50,40,120,0.35); }
+body.night .dias { background: rgba(50,40,120,0.35); }
 
-.night {
-    background-color: rgb(3, 20, 53);
-    color: white;
-    
-    #topico{
-    #inicio{
-        background-color: rgb(35, 93, 160);
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-#comparar{
-    #numero{
-        color: rgb(3, 20, 53);
-    }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-5px); }
 }
-
-    #busca{
-        background-color: rgb(35, 93, 160);
-
-        button{
-            background-color: rgb(45, 113, 192);
-        }
-    }
-
-    #principal{
-        background-color: rgb(35, 93, 160);
-        box-shadow: 0 13px 16px rgba(255, 255, 255, 0.096);
-    
-        #cidade-compartilhamento{
-        #compartilhamento{
-           
-            p{
-                background-color: rgb(45, 113, 192);
-            }
-        }
-
-    }
-
-}
-
-#mensagem{
-    background-color: rgb(45, 113, 192);
-}
-
-#proximosDias{
-
-    .dias{
-        background-color: rgb(45, 113, 192);
-    }
-
-}
-}
-
-
-
-#topico{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    width: 40rem;
-
-    #inicio{
-     background-color: rgb(169 208 253); 
-     width: 5rem;
-     height: 2rem;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-weight: 500;
-    }
-
-    #comparar{
-        display: flex;
-        column-gap: 0.5rem;
-        align-items: center;
-        #numero{
-            width: 1.3rem;
-            height: 1.3rem;
-            background-color: white;
-            color: rgb(118 179 251);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 800;
-            border-radius: 100%;
-            font-size: 0.8rem;
-        }
-    }
-}
-
-#busca{
-    display: flex;
-    flex-direction: row;
-    width: 26.3rem;
-    background-color: rgb(151 197 252);
-    justify-content: space-between;
-    height: 2.5rem;
-    align-items: center;
-
-        button{
-            height: 2.5rem;
-            width: 4.5rem;
-            background-color: rgb(165 205 252);
-            border: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.87rem;
-        }
-
-        input{
-            font-size: 1rem;
-            margin-left: 1rem;
-            border: none;
-            background-color:transparent;
-            color: white;
-            outline: none;
-        }
-
-        input::placeholder {
-            color: #ffffff; 
-        }
-}
-
-
-#principal{
-    background-color: rgb(151 197 252);
-    width: 26.3rem;
-    border-radius: 0.7rem;
-    box-shadow: 0 13px 16px rgba(0, 0, 0, 0.1);
-    height: 32rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    #cidade-compartilhamento{
-        display: flex;
-        justify-content: space-between;
-        width: 24rem;
-        
-
-    #cidade-data{
-        height: 5rem;
-        display: flex;
-        flex-direction: column;
-        
-
-        #cidade-apresentar{
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        #data{
-            margin-top: -1.3rem;
-            color: rgba(255, 255, 255, 0.822);
-            letter-spacing: 0.066rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-}
-
-#compartilhamento{
-    display: flex;
-    width: 4.6rem;
-    justify-content: space-between;
-    height: 2rem;
-    
-
-    p{
-        background-color: rgb(174, 212, 255);
-        width: 2.1rem;
-        height: 2rem;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        margin-top: 1.5rem;
-     }
-    }
-    } 
-}
-
-#div-temperatura{
-    display: flex;
-    width: 10rem;
-    justify-content: space-between;
-    margin-top: -1.4rem;
-p{
-    font-size: 2.7rem;
-    font-weight: 600;
-    
-}
-}
-
-#div-clima{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 6rem;
-    margin-top: -2.5rem;
-    
-    #clima{
-        font-weight: 600;
-        height: 0.5rem;
-    }
-
-    #vento-umidade{
-        display: flex;
-        flex-direction: row;
-        width: 9rem;
-        justify-content: space-between;
-        margin-top: -0.8rem;
-
-        p{
-            font-size: 0.9rem;
-            color:rgba(255, 255, 255, 0.822);     
-        }
-    }
-}
-
-#mensagem{
-    background-color: rgb(165 205 252);
-    width: 23.5rem;
-    margin: 0.5rem;
-    p{
-        text-align: center; 
-        margin:0.8rem;
-        line-height: 1.5rem;
-    }
-
-}
-
-#msg-proximosDias{
-    width: 23.4rem;
-    display: flex;
-    justify-content: flex-start;
-}
-
-#proximosDias{
-    display: flex;
-    width: 23.4rem;
-    justify-content: space-between;
-    height: 6rem;
-
-    .dias{
-        background-color: rgb(165 205 252);
-        width: 7.5rem;
-        border-radius: 0.2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-
-        .temperatura{
-            margin: 0px;
-        }
-
-        .clima{
-            margin:0px;
-        }
-
-        .diaDaSemana{
-            margin: 0px;
-        }
-
-    }
-
-}
-
-
-
