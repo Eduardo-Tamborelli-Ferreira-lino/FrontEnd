@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty - Multiverse Explorer</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen p-8 font-sans antialiased selection:bg-green-500 selection:text-white">
+    
+    <header class="max-w-4xl mx-auto mb-16 text-center mt-8">
+        <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4 drop-shadow-lg">
+            Multiverse Explorer
+        </h1>
+        <p class="text-gray-400 text-lg">Search characters across dimensions</p>
+        
+        <div class="mt-8 relative max-w-xl mx-auto group">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-6 w-6 text-gray-500 group-focus-within:text-green-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+            <input 
+                type="text" 
+                id="searchInput" 
+                autocomplete="off"
+                placeholder="Type a character name (e.g. Rick, Morty)..." 
+                class="w-full bg-gray-800 border-2 border-gray-700 text-white pl-12 pr-6 py-4 rounded-full focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-500/20 transition-all text-lg shadow-lg placeholder-gray-500"
+            >
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto relative min-h-[400px]">
+        
+        <!-- Loading State (Hidden by default, remove 'hidden' class to show) -->
+        <div id="loadingState" class="hidden absolute inset-0 flex flex-col items-center justify-center z-10 bg-gray-900/80 backdrop-blur-md rounded-3xl">
+            <div class="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin shadow-[0_0_15px_rgba(34,197,94,0.5)]"></div>
+            <p class="mt-6 text-green-400 font-semibold text-xl tracking-widest uppercase animate-pulse">Opening portal...</p>
+        </div>
+
+        <!-- Error State (Hidden by default) -->
+        <div id="errorState" class="hidden text-center py-20 bg-gray-800/50 rounded-3xl border border-gray-700">
+            <div class="text-7xl mb-6 animate-bounce">🛸</div>
+            <h2 class="text-4xl font-bold text-red-400 mb-4">Character lost in another dimension!</h2>
+            <p class="text-gray-400 text-lg max-w-md mx-auto">We searched C-137 and beyond, but couldn't find anyone with that name.</p>
+        </div>
+
+        <!-- Empty State (Initial state before searching) -->
+        <div id="emptyState" class="text-center py-20 text-gray-500">
+            <p id="emptyStateText" class="text-xl">Use the search bar above to find characters.</p>
+        </div>
+
+        <!-- Results Grid -->
+        <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- 
+                ========================================================
+                TEMPLATE / EXAMPLE CARDS
+                These are examples of the 3 states. You should delete 
+                them from HTML and render them via JS based on the API.
+                ========================================================
+            -->
+            
+            <!-- Example: Alive Character -->
+            <article class="bg-gray-800 rounded-2xl overflow-hidden border-2 border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] duration-300 flex flex-col group">
+                <div class="relative overflow-hidden">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow relative -mt-12 z-10">
+                    <div class="flex justify-between items-start mb-2">
+                        <h2 class="text-2xl font-bold text-white drop-shadow-md">Rick Sanchez</h2>
+                    </div>
+                    <div class="mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-500/20 text-green-400 border border-green-500/50 inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                            Alive
+                        </span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Species: Human</p>
+                    
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <p class="text-sm font-medium text-blue-400 bg-blue-500/10 p-3 rounded-lg border border-blue-500/20">
+                            "Just another ordinary earthling."
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Example: Dead Character -->
+            <article class="bg-gray-800 rounded-2xl overflow-hidden border-2 border-red-600 shadow-[0_0_20px_rgba(220,38,38,0.3)] grayscale transition-all hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(220,38,38,0.5)] duration-300 flex flex-col group">
+                <div class="relative overflow-hidden">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/7.jpeg" alt="Abradolf Lincler" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow relative -mt-12 z-10">
+                    <div class="flex justify-between items-start mb-2">
+                        <h2 class="text-2xl font-bold text-white drop-shadow-md">Abradolf Lincler</h2>
+                    </div>
+                    <div class="mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-500/20 text-red-400 border border-red-500/50 inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                            Dead
+                        </span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Species: Human</p>
+                    
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <p class="text-sm font-medium text-blue-400 bg-blue-500/10 p-3 rounded-lg border border-blue-500/20">
+                            "Just another ordinary earthling."
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Example: Unknown Character -->
+            <article class="bg-gray-900 rounded-2xl overflow-hidden border-2 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] duration-300 flex flex-col group">
+                <div class="relative overflow-hidden">
+                    <!-- mix-blend-luminosity makes it look mysterious/dark -->
+                    <img src="https://rickandmortyapi.com/api/character/avatar/8.jpeg" alt="Adjudicator Rick" class="w-full h-64 object-cover mix-blend-luminosity transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow relative -mt-12 z-10">
+                    <div class="flex justify-between items-start mb-2">
+                        <h2 class="text-2xl font-bold text-gray-300 drop-shadow-md">Adjudicator Rick</h2>
+                    </div>
+                    <div class="mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-500/20 text-purple-400 border border-purple-500/50 inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
+                            Unknown
+                        </span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Species: Human</p>
+                    
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <p class="text-sm font-medium text-blue-400 bg-blue-500/10 p-3 rounded-lg border border-blue-500/20">
+                            "Just another ordinary earthling."
+                        </p>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Example: Alien Character -->
+            <article class="bg-gray-800 rounded-2xl overflow-hidden border-2 border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] duration-300 flex flex-col group">
+                <div class="relative overflow-hidden">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty Smith" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent"></div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow relative -mt-12 z-10">
+                    <div class="flex justify-between items-start mb-2">
+                        <h2 class="text-2xl font-bold text-white drop-shadow-md">Morty Smith</h2>
+                    </div>
+                    <div class="mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-500/20 text-green-400 border border-green-500/50 inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                            Alive
+                        </span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Species: Alien</p>
+                    
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <p class="text-sm font-medium text-orange-400 bg-orange-500/10 p-3 rounded-lg border border-orange-500/20">
+                            "Caution! This being might not be friendly."
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

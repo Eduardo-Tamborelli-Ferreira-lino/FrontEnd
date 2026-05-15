@@ -1,0 +1,22 @@
+/* 
+  Custom styles for Rick and Morty App
+  TailwindCSS is handling most of the styling, but you can add custom animations or utilities here if needed.
+*/
+
+/* Custom scrollbar for a better dark theme experience */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827; /* gray-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151; /* gray-700 */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e; /* green-500 */
+}
